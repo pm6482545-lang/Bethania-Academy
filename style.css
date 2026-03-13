@@ -1,15 +1,14 @@
-/* Styling inspired by the Meru University profile */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #fff; color: #333; }
+body { font-family: Arial, sans-serif; background: #fff; overflow-x: hidden; }
 
-/* Top Header */
-.top-header { background: #fff; text-align: center; padding: 15px 0; border-bottom: 3px solid #42a5f5; }
-.top-header h1 { color: #2c3e50; font-size: 1.4rem; letter-spacing: 1px; }
+.top-header { background: #fff; text-align: center; padding: 20px 0; border-bottom: 3px solid #42a5f5; }
+.top-header h1 { color: #2c3e50; font-size: 1.5rem; }
 
-/* Main Nav */
-header { background: #fff; padding: 10px 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+header { background: #fff; padding: 10px 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
-.profile-logo { height: 80px; width: auto; }
+
+/* Fixed Logo Size */
+.profile-logo { height: 70px; width: auto; display: block; }
 
 .menu-btn { font-size: 1.8rem; background: none; border: none; color: #42a5f5; cursor: pointer; }
 nav { position: absolute; top: 100%; right: -100%; background: #2c3e50; width: 250px; transition: 0.4s; }
@@ -17,28 +16,31 @@ nav.active { right: 0; }
 nav ul { list-style: none; }
 nav ul li a { display: block; padding: 15px 20px; color: #fff; text-decoration: none; border-bottom: 1px solid #34495e; }
 
-/* News Style Grid */
-.news-slider { padding: 40px 5%; background: #f9f9f9; text-align: center; }
-.section-title { font-size: 1.8rem; margin-bottom: 25px; color: #2c3e50; }
-.news-grid { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
-.news-item { min-width: 280px; flex: 1; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); scroll-snap-align: center; }
-.news-item img { width: 100%; height: 200px; object-fit: cover; }
-.news-caption { padding: 15px; font-weight: bold; color: #2c3e50; font-size: 0.9rem; }
+/* Fixed Slider Animation (5 images, 5 seconds each = 25s loop) */
+.slider-wrapper { width: 90%; max-width: 600px; margin: auto; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.auto-slider { display: flex; width: 500%; animation: slideEffect 25s infinite; }
+.slide-card { width: 100%; }
+.slide-card img { width: 100%; height: 350px; object-fit: cover; display: block; }
 
-/* Welcome Button */
-.welcome-area { margin-top: 30px; }
-.welcome-btn { background: #42a5f5; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block; }
+@keyframes slideEffect {
+    0%, 15% { transform: translateX(0); }
+    20%, 35% { transform: translateX(-20%); }
+    40%, 55% { transform: translateX(-40%); }
+    60%, 75% { transform: translateX(-60%); }
+    80%, 95% { transform: translateX(-80%); }
+    100% { transform: translateX(0); }
+}
 
-/* History Section */
-.history-section { padding: 60px 10%; text-align: center; line-height: 1.8; }
-.performance-badge { display: inline-block; margin-top: 20px; background: #e3f2fd; color: #1976d2; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
+.news-slider { padding: 40px 0; text-align: center; background: #f4f4f4; }
+.welcome-btn { margin-top: 25px; background: #42a5f5; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 30px; display: inline-block; font-weight: bold; }
 
-/* Footer */
-footer { background: #2c3e50; color: #fff; text-align: center; padding: 40px; margin-top: 40px; }
+.history-section { padding: 50px 10%; text-align: center; line-height: 1.6; }
+footer { background: #2c3e50; color: #fff; text-align: center; padding: 30px; }
 
-/* WhatsApp */
-.whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; z-index: 1000; }
-
-@media (max-width: 600px) {
-    .news-grid { flex-direction: column; }
+/* WhatsApp Button */
+.whatsapp-btn { 
+    position: fixed; bottom: 20px; right: 20px; 
+    background: #25D366; color: #fff; width: 60px; height: 60px; 
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+    font-size: 2rem; text-decoration: none; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
