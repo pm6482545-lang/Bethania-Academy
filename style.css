@@ -108,3 +108,4 @@ footer { background: #2c3e50; color: #fff; padding: 40px 10%; margin-top: 30px; 
     color: #42a5f5;
     margin-bottom: 5px;
 }
+.whatsapp-btn { position: fixed; bottom: 20px; right: 20px; z-index: 2000; }
