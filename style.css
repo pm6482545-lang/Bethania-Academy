@@ -165,3 +165,35 @@ footer { background: #2c3e50; color: #fff; padding: 40px 10%; margin-top: 30px; 
     border-bottom: 2px solid #42a5f5;
     display: inline-block;
 }
+/* --- FOOTER WHATSAPP STYLING --- */
+.footer-whatsapp {
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.footer-whatsapp a {
+    background-color: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+}
+
+.footer-whatsapp a:hover {
+    background-color: #128c7e;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.footer-whatsapp i {
+    font-size: 1.5rem;
+}
+
+/* Remove the old floating button style if you have it */
+.whatsapp-btn {
+    display: none;
+}
