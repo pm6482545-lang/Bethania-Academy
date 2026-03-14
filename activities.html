@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Curricular | FPFK Bethania Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="top-header">
+        <h1>BEYOND THE CLASSROOM</h1>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-box">
+                <img src="images/logo.jpeg" alt="School Logo" class="profile-logo">
+            </div>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="activities.html">Co-Curricular</a></li>
+                    <li><a href="library.html">Library</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="about-container">
+        
+        <div class="motto-section">
+            <h2 class="motto-text">Nurturing Talents & Leadership</h2>
+            <p>At FPFK Bethania Academy, we believe every learner has a unique gift. Our co-curricular programs are designed to build confidence, discipline, and teamwork.</p>
+        </div>
+
+        <h2 class="section-title">Field & Track Athletics</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <img src="images/football.jpg" alt="Football" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                <h3>Football & Basketball</h3>
+                <p>Our teams compete with spirit and precision. We focus on tactical play and physical fitness, ensuring our athletes dominate on the pitch and the court.</p>
+            </div>
+            <div class="info-card">
+                <img src="images/athletics.jpg" alt="Athletics" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                <h3>Sprints & Relay Races</h3>
+                <p>Speed and endurance are the hallmarks of our track stars. From 100m dashes to inter-house relays, our students learn the power of perseverance.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Performing Arts & Culture</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <img src="images/traditional-dance.jpg" alt="Traditional Dance" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                <h3>Traditional & Folk Dance</h3>
+                <p>Celebrating our rich African heritage through rhythm and movement. Our troupe is renowned for energetic performances that tell the stories of our ancestors.</p>
+            </div>
+            <div class="info-card">
+                <img src="images/modern-dance.jpg" alt="Modern Dance" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                <h3>Modern & Solo Dance</h3>
+                <p>Expressing contemporary creativity. Whether in a group or a solo spotlight, our dancers showcase incredible grace and modern choreography.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Creative Media & Clubs</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <img src="images/broadcast.jpg" alt="Live Broadcast" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                <h3>Live Broadcast & Journalism</h3>
+                <p>The voices of Bethania! Our media club handles live school broadcasts, developing public speaking skills and confidence in our future journalists.</p>
+            </div>
+            <div class="info-card">
+                <img src="images/scouts.jpg" alt="Scouts" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                <h3>Scouting & Leadership</h3>
+                <p>Building character and citizenship. Our scouts are trained in survival skills, first aid, and community service, embodying our motto: "Determination is Nobility."</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p class="footer-quote">"Determination is Nobility"</p>
+        <p>&copy; 2026 FPFK Bethania Academy. All Rights Reserved.</p>
+        <p><i class="fas fa-map-marker-alt"></i> Along Likoni Ukunda Road, Mombasa.</p>
+        <p><i class="fas fa-envelope"></i> fpfkbethacademy@gmail.com | <i class="fas fa-phone"></i> +254 711 638 425</p>
+        
+        <div class="footer-whatsapp">
+            <a href="https://wa.me/254702242291" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat with us: 0702242291
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
