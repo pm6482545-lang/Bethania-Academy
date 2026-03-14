@@ -15,11 +15,11 @@
     </style>
 </head>
 <body>
-    <div class="top-header"> <h1 id="folder-title">Resource Repository</h1> </div>
+    <div class="top-header"> <h1 id="folder-title">Loading Repository...</h1> </div>
     <div class="about-container">
         <div class="file-list-container">
-            <h2 id="grade-heading" style="color: #1976d2; margin-bottom: 20px;">Available Files</h2>
-            <div id="file-list-display"></div>
+            <h2 id="grade-heading" style="color: #1976d2; margin-bottom: 20px;">Scanning Folder...</h2>
+            <div id="file-list-display"><p><i class="fas fa-spinner fa-spin"></i> Searching for files...</p></div>
             <a href="library.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Library</a>
         </div>
     </div>
@@ -28,32 +28,55 @@
         const params = new URLSearchParams(window.location.search);
         const grade = params.get('grade') || 'PP1';
         document.getElementById('folder-title').innerText = grade + " Repository";
-        document.getElementById('grade-heading').innerText = "Documents for " + grade;
+        document.getElementById('grade-heading').innerText = "Documents in " + grade;
 
-        // --- EDIT THIS PART ONLY WHEN YOU ADD NEW FILES ---
-        const schoolFiles = {
-            'PP1': ['Welcome-to-PP1.pdf'],
-            'PP2': ['Coloring-Exercise.pdf', 'Alphabet-Tracing.pdf'],
-            'G1':  ['Math-Homework-Week1.pdf'],
-            'G6':  ['KPSEA-Revision-Science.pdf']
-            // Add other grades here as needed
-        };
-        // --------------------------------------------------
+        async function autoLoadFiles() {
+            const display = document.getElementById('file-list-display');
+            const folderPath = `documents/${grade}/`;
 
-        const display = document.getElementById('file-list-display');
-        const files = schoolFiles[grade] || [];
+            try {
+                // We fetch the folder URL. GitHub/Netlify will return an HTML list of files.
+                const response = await fetch(folderPath);
+                if (!response.ok) throw new Error("Folder not found");
+                
+                const htmlText = await response.text();
+                
+                // We use a temporary element to parse the HTML string
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = htmlText;
+                
+                // Find all links (<a> tags) in that HTML
+                const links = tempDiv.querySelectorAll('a');
+                let fileFound = false;
+                display.innerHTML = ""; // Clear the loading text
 
-        if (files.length > 0) {
-            files.forEach(fileName => {
-                display.innerHTML += `
-                    <a href="documents/${grade}/${fileName}" class="file-item" target="_blank">
-                        <i class="fas fa-file-pdf"></i>
-                        <span>${fileName.replace(/-/g, ' ')}</span>
-                    </a>`;
-            });
-        } else {
-            display.innerHTML = "<p>No files uploaded for this grade yet. Check back soon!</p>";
+                links.forEach(link => {
+                    const href = link.getAttribute('href');
+                    // We only want files, so we ignore links like "../" or index files
+                    if (href && href.includes('.') && !href.startsWith('..') && !href.toLowerCase().includes('index')) {
+                        fileFound = true;
+                        const fileName = decodeURIComponent(href).split('/').pop();
+                        const icon = fileName.endsWith('.pdf') ? 'fa-file-pdf' : 'fa-file-alt';
+                        
+                        display.innerHTML += `
+                            <a href="${folderPath}${href}" class="file-item" target="_blank">
+                                <i class="fas ${icon}"></i>
+                                <span>${fileName}</span>
+                            </a>`;
+                    }
+                });
+
+                if (!fileFound) {
+                    display.innerHTML = "<p>No documents found in this folder yet.</p>";
+                }
+
+            } catch (error) {
+                console.error(error);
+                display.innerHTML = "<p>Folder is ready! Start uploading files to see them here.</p>";
+            }
         }
+
+        autoLoadFiles();
     </script>
 </body>
 </html>
