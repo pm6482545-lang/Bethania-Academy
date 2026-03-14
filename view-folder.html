@@ -15,11 +15,13 @@
     </style>
 </head>
 <body>
-    <div class="top-header"> <h1 id="folder-title">Loading Repository...</h1> </div>
+    <div class="top-header"> <h1 id="folder-title">Resource Repository</h1> </div>
     <div class="about-container">
         <div class="file-list-container">
             <h2 id="grade-heading" style="color: #1976d2; margin-bottom: 20px;">Scanning Folder...</h2>
-            <div id="file-list-display"><p><i class="fas fa-spinner fa-spin"></i> Searching for files...</p></div>
+            <div id="file-list-display">
+                <p><i class="fas fa-spinner fa-spin"></i> Reading folder content...</p>
+            </div>
             <a href="library.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Library</a>
         </div>
     </div>
@@ -27,56 +29,56 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const grade = params.get('grade') || 'PP1';
+        
         document.getElementById('folder-title').innerText = grade + " Repository";
-        document.getElementById('grade-heading').innerText = "Documents in " + grade;
+        document.getElementById('grade-heading').innerText = "Files in " + grade;
 
-        async function autoLoadFiles() {
+        async function scanGitHubFolder() {
             const display = document.getElementById('file-list-display');
+            // The exact path where your files are stored
             const folderPath = `documents/${grade}/`;
 
             try {
-                // We fetch the folder URL. GitHub/Netlify will return an HTML list of files.
                 const response = await fetch(folderPath);
-                if (!response.ok) throw new Error("Folder not found");
+                const text = await response.text();
                 
-                const htmlText = await response.text();
+                // We parse the HTML of the folder directory
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const links = Array.from(doc.querySelectorAll('a'));
                 
-                // We use a temporary element to parse the HTML string
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = htmlText;
-                
-                // Find all links (<a> tags) in that HTML
-                const links = tempDiv.querySelectorAll('a');
-                let fileFound = false;
-                display.innerHTML = ""; // Clear the loading text
+                display.innerHTML = ""; // Clear loading message
+                let fileCount = 0;
 
                 links.forEach(link => {
-                    const href = link.getAttribute('href');
-                    // We only want files, so we ignore links like "../" or index files
-                    if (href && href.includes('.') && !href.startsWith('..') && !href.toLowerCase().includes('index')) {
-                        fileFound = true;
-                        const fileName = decodeURIComponent(href).split('/').pop();
-                        const icon = fileName.endsWith('.pdf') ? 'fa-file-pdf' : 'fa-file-alt';
-                        
+                    const fileName = link.getAttribute('href');
+                    
+                    // Filter: Only show files, ignore parent folders and system files
+                    if (fileName && fileName.includes('.') && !fileName.startsWith('..') && !fileName.includes('index')) {
+                        fileCount++;
+                        // Set icon based on extension
+                        let iconClass = "fa-file-alt";
+                        if (fileName.toLowerCase().endsWith('.pdf')) iconClass = "fa-file-pdf";
+                        if (fileName.toLowerCase().endsWith('.txt')) iconClass = "fa-file-code";
+
                         display.innerHTML += `
-                            <a href="${folderPath}${href}" class="file-item" target="_blank">
-                                <i class="fas ${icon}"></i>
-                                <span>${fileName}</span>
+                            <a href="${folderPath}${fileName}" class="file-item" target="_blank">
+                                <i class="fas ${iconClass}"></i>
+                                <span>${decodeURIComponent(fileName)}</span>
                             </a>`;
                     }
                 });
 
-                if (!fileFound) {
-                    display.innerHTML = "<p>No documents found in this folder yet.</p>";
+                if (fileCount === 0) {
+                    display.innerHTML = "<p>No files found. Upload documents to this folder on GitHub to see them here automatically.</p>";
                 }
 
             } catch (error) {
-                console.error(error);
-                display.innerHTML = "<p>Folder is ready! Start uploading files to see them here.</p>";
+                display.innerHTML = "<p>Folder is ready. Please upload your files to the repository.</p>";
             }
         }
 
-        autoLoadFiles();
+        scanGitHubFolder();
     </script>
 </body>
 </html>
