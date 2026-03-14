@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library & Resources | FPFK Bethania Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .grade-link {
+            background: #f8f9fa;
+            border: 2px solid #1976d2;
+            color: #1976d2;
+            padding: 15px 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .grade-link:hover {
+            background: #1976d2;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .grade-link i {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-header">
+        <h1>THE KNOWLEDGE CENTER</h1>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-box">
+                <img src="images/logo.jpeg" alt="School Logo" class="profile-logo">
+            </div>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="activities.html">Co-Curricular</a></li>
+                    <li><a href="library.html" class="active">Library</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="about-container">
+        
+        <div class="motto-section">
+            <h2 class="motto-text">Discover, Explore, and Excel</h2>
+            <p>The Bethania Knowledge Center is the heart of academic excellence. We provide a rich environment where students can access both physical literature and digital CBC resources to foster a lifelong culture of research and reading.</p>
+        </div>
+
+        <div class="values-section">
+            <h3><i class="fas fa-cloud-download-alt"></i> Digital Revision Hub</h3>
+            <p>Select your class below to access stored revision papers, assessment tools, and learning materials. These resources are updated regularly by our academic department.</p>
+            
+            <div class="resource-grid">
+                <a href="view-folder.html?grade=PP1" class="grade-link"><i class="fas fa-child"></i>PP1</a>
+                <a href="view-folder.html?grade=PP2" class="grade-link"><i class="fas fa-child"></i>PP2</a>
+                
+                <a href="view-folder.html?grade=G1" class="grade-link"><i class="fas fa-book"></i>G1</a>
+                <a href="view-folder.html?grade=G2" class="grade-link"><i class="fas fa-book"></i>G2</a>
+                <a href="view-folder.html?grade=G3" class="grade-link"><i class="fas fa-book"></i>G3</a>
+                <a href="view-folder.html?grade=G4" class="grade-link"><i class="fas fa-book-reader"></i>G4</a>
+                <a href="view-folder.html?grade=G5" class="grade-link"><i class="fas fa-book-reader"></i>G5</a>
+                <a href="view-folder.html?grade=G6" class="grade-link"><i class="fas fa-graduation-cap"></i>G6</a>
+                
+                <a href="view-folder.html?grade=G7" class="grade-link"><i class="fas fa-microscope"></i>G7</a>
+                <a href="view-folder.html?grade=G8" class="grade-link"><i class="fas fa-flask"></i>G8</a>
+                <a href="view-folder.html?grade=G9" class="grade-link"><i class="fas fa-user-graduate"></i>G9</a>
+            </div>
+        </div>
+
+        <div class="values-section" style="margin-top: 40px;">
+            <h3><i class="fas fa-university"></i> Physical Collection & Study Zones</h3>
+            <p>Our library maintains a vast array of resources tailored to the CBC curriculum, ensuring every student has the tools they need to succeed.</p>
+            
+            <div class="info-grid" style="margin-top: 20px;">
+                <div class="info-card">
+                    <img src="images/library-main.jpg" alt="Library View" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                    <h4>Quiet Study Zones</h4>
+                    <p>Dedicated areas designed for individual focus, research, and intensive KPSEA preparation.</p>
+                </div>
+                <div class="info-card">
+                    <img src="images/reading-area.jpg" alt="Reading Corner" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                    <h4>Literacy & Languages</h4>
+                    <p>A wide selection of English and Kiswahili readers to sharpen communication and creative writing skills.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p class="footer-quote">"Determination is Nobility"</p>
+        <p>&copy; 2026 FPFK Bethania Academy. All Rights Reserved.</p>
+        <p><i class="fas fa-map-marker-alt"></i> Along Likoni Ukunda Road, Mombasa.</p>
+        
+        <div class="footer-whatsapp">
+            <a href="https://wa.me/254702242291" target="_blank">
+                <i class="fab fa-whatsapp"></i> Library Inquiries: 0702242291
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
