@@ -3,25 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Sent | Bethania Academy</title>
+    <title>Thank You | FPFK Bethania Academy</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background: #f4f7f6; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
-        .thanks-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 400px; }
-        .icon-check { color: #2e7d32; font-size: 4rem; margin-bottom: 20px; }
-        h1 { color: #1a252f; margin-bottom: 10px; }
-        p { color: #666; margin-bottom: 30px; line-height: 1.6; }
-        .back-btn { background: #2e7d32; color: white; text-decoration: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-        .back-btn:hover { background: #1b5e20; }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+        .thanks-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .thanks-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            border-top: 8px solid #2e7d32;
+        }
+        .thanks-card i {
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        .thanks-card h1 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        .thanks-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .home-btn {
+            display: inline-block;
+            background: #2e7d32;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .home-btn:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
-    <div class="thanks-box">
-        <i class="fas fa-check-circle icon-check"></i>
-        <h1>Thank You!</h1>
-        <p>Your feedback has been successfully sent to the school administration. We appreciate your contribution to our community.</p>
-        <a href="index.html" class="back-btn">RETURN TO HOME</a>
+    <div class="thanks-container">
+        <div class="thanks-card">
+            <i class="fas fa-check-circle fa-4x"></i>
+            <h1>Message Received!</h1>
+            <p>Thank you for reaching out to <strong>FPFK Bethania Academy</strong>. Your feedback is very important to us. We will review your message and get back to you if necessary.</p>
+            <a href="index.html" class="home-btn"><i class="fas fa-home"></i> Back to Homepage</a>
+        </div>
     </div>
+
+    <footer style="margin-top: auto;">
+        <p>&copy; 2026 FPFK Bethania Academy. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
