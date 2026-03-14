@@ -6,6 +6,77 @@
     <title>Academics | FPFK Bethania Academy</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- New Facility Section Styles --- */
+        .facility-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .facility-photo-box {
+            position: relative;
+        }
+
+        .facility-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 3px solid #f0f7ff;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .facility-caption {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(46, 125, 50, 0.9); /* Dark green to match your theme */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .facility-info h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .facility-highlights {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .facility-highlights li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #333;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .facility-highlights li i {
+            color: #d4af37; /* Gold accent */
+            margin-right: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .facility-grid { grid-template-columns: 1fr !important; }
+        }
+    </style>
 </head>
 <body>
 
@@ -30,6 +101,44 @@
                 </div>
             </div>
         </section>
+
+        <div class="facility-section">
+            <div class="facility-grid">
+                <div class="facility-photo-box">
+                    <img src="images/computer-lab.jpg" alt="Computer Lab" class="facility-photo">
+                    <div class="facility-caption">Digital Learning Center</div>
+                </div>
+                <div class="facility-info">
+                    <h3>Nurturing Digital Literacy: Our Computer Lab</h3>
+                    <p>At FPFK Bethania Academy, we recognize that digital competency is a fundamental pillar of modern education. We provide a state-of-the-art computer laboratory to ensure our students are technologically proficient.</p>
+                    <p>This facility enhances academic performance by providing hands-on experience in research and coding, preparing learners for a digital future.</p>
+                    <ul class="facility-highlights">
+                        <li><i class="fas fa-desktop"></i> Modern Desktop Workstations</li>
+                        <li><i class="fas fa-wifi"></i> Supervised High-Speed Internet</li>
+                        <li><i class="fas fa-keyboard"></i> Practical ICT Curriculum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="facility-section">
+            <div class="facility-grid" style="grid-template-columns: 1.2fr 1fr;">
+                <div class="facility-info">
+                    <h3>Igniting Scientific Discovery: Our Laboratory</h3>
+                    <p>Our dedicated science laboratory is where critical thinking meets practical innovation. It allows students to transform abstract concepts in Biology, Chemistry, and Physics into measurable experiments.</p>
+                    <p>By prioritizing hands-on discovery, we foster a passion for STEM fields and equip our students with the skills to solve real-world problems.</p>
+                    <ul class="facility-highlights">
+                        <li><i class="fas fa-microscope"></i> Advanced Scientific Apparatus</li>
+                        <li><i class="fas fa-shield-alt"></i> Safe & Controlled Environment</li>
+                        <li><i class="fas fa-vial"></i> Guided Practical Assessments</li>
+                    </ul>
+                </div>
+                <div class="facility-photo-box">
+                    <img src="images/science-lab.jpg" alt="Science Lab" class="facility-photo">
+                    <div class="facility-caption">The Heart of Innovation</div>
+                </div>
+            </div>
+        </div>
 
         <section class="table-section">
             <h3>KJSEA 2025 Transition Results</h3>
