@@ -2,9 +2,6 @@ backend:
   name: github
   repo: pm6482545-lang/Bethania-Academy
   branch: main
-  # Using the stable Heroku bridge
-  base_url: https://cms-proxy.herokuapp.com
-  auth_endpoint: /auth
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
