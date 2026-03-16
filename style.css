@@ -197,3 +197,36 @@ footer { background: #2c3e50; color: #fff; padding: 40px 10%; margin-top: 30px; 
 .whatsapp-btn {
     display: none;
 }
+/* --- FIX FOR HIGHLIGHTS SLIDER --- */
+.slide-card img {
+    width: 100%;
+    height: 450px; /* High enough for computer screens */
+    object-fit: cover; /* Keeps images from looking stretched */
+    border-radius: 15px;
+}
+
+/* Adjust height for mobile phones automatically */
+@media (max-width: 768px) {
+    .slide-card img {
+        height: 250px; 
+    }
+}
+
+/* --- EXPANDED FACEBOOK BUTTON --- */
+.fb-btn {
+    background-color: #1877F2; /* Facebook Blue */
+    color: white !important;
+    padding: 12px 35px; /* Makes the button wide */
+    border-radius: 50px; /* Rounded pill shape */
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.fb-btn:hover {
+    background-color: #145dbf;
+    transform: scale(1.05); /* Slight grow effect when hovering */
+}
