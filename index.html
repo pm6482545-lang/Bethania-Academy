@@ -219,14 +219,16 @@
 
         document.addEventListener('DOMContentLoaded', loadAnnouncements);
     </script>
-    <script>
-        // This code pulls the text from your announcements.txt file fetch('announcements.txt')
-        .then(response=>
-            response.text())
-        .then(data=>{
-            document.getElementBy Id('news-box').innerText=data;})
-        .catch(err=>{document.getElementById('news-box').inner Text="Visit the office for latest updates.";
-                    });
-    </script>
+  <script>
+  // This code pulls the text from your announcements.txt file
+  fetch('announcements.txt')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('news-box').innerText = data;
+    })
+    .catch(err => {
+      document.getElementById('news-box').innerText = "Visit the office for latest updates.";
+    });
+</script>
 </body>
 </html>
